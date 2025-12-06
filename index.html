@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anisa Aulia - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Modern Color Palette */
+            --primary: #8B5FBF;
+            --primary-light: #9D7BC9;
+            --primary-dark: #6A4B9A;
+            --secondary: #FF8E53;
+            --secondary-light: #FFA578;
+            --dark: #1A1A2E;
+            --dark-light: #2D3047;
+            --light: #F8F9FA;
+            --light-gray: #E9ECEF;
+            --gray: #6C757D;
+            --success: #4CC9F0;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 3rem;
+            --space-xl: 4rem;
+            --space-xxl: 6rem;
+            
+            /* Typography */
+            --font-primary: 'Inter', sans-serif;
+            --font-secondary: 'Poppins', sans-serif;
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
+            --shadow-hover: 0 12px 40px rgba(139, 95, 191, 0.2);
+            
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 30px;
+            --radius-round: 50%;
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color var(--transition-normal);
+        }
+
+        body.dark-mode {
+            background-color: var(--dark);
+            color: var(--light);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-secondary);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: var(--space-sm);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: var(--space-lg);
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        p {
+            margin-bottom: var(--space-sm);
+            font-size: 1.1rem;
+            color: var(--gray);
+        }
+
+        body.dark-mode p {
+            color: #B0B7C3;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color var(--transition-fast);
+        }
+
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        section {
+            padding: var(--space-xl) 0;
+            position: relative;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+        }
+
+        body.dark-mode header {
+            background-color: rgba(26, 26, 46, 0.95);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-sm) 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-lg);
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            position: relative;
+            padding: var(--space-xs) 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width var(--transition-normal);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            color: var(--dark);
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-round);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-normal);
+        }
+
+        body.dark-mode .theme-toggle {
+            color: var(--light);
+        }
+
+        .theme-toggle:hover {
+            background-color: rgba(139, 95, 191, 0.1);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        body.dark-mode .menu-toggle {
+            color: var(--light);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(139, 95, 191, 0.05), rgba(255, 142, 83, 0.05));
+            clip-path: polygon(100% 0, 100% 100%, 0 50%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+            align-items: center;
+        }
+
+        .hero-text {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+
+        .profile-img {
+            width: min(100%, 400px);
+            height: auto;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            transition: transform var(--transition-normal);
+        }
+
+        .profile-img:hover {
+            transform: scale(1.02);
+        }
+
+        .hero .title {
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            color: var(--primary);
+            margin-bottom: var(--space-md);
+            font-weight: 600;
+        }
+
+        .hero .bio {
+            font-size: 1.2rem;
+            margin-bottom: var(--space-md);
+            max-width: 600px;
+        }
+
+        .hero .motto {
+            font-size: 1.1rem;
+            font-style: italic;
+            padding: var(--space-md);
+            background: linear-gradient(135deg, rgba(139, 95, 191, 0.1), rgba(255, 142, 83, 0.1));
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--primary);
+            margin-bottom: var(--space-lg);
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow-md);
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--light-gray);
+        }
+
+        body.dark-mode .about {
+            background-color: var(--dark-light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+            align-items: start;
+        }
+
+        .profile-detail, .education {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .timeline-item {
+            background: white;
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+            border-left: 4px solid var(--primary);
+        }
+
+        body.dark-mode .timeline-item {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .school-name {
+            font-weight: 600;
+            color: var(--dark);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        body.dark-mode .school-name {
+            color: var(--light);
+        }
+
+        .school-years {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .school-score {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary), #FFB347);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Experience Section */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .experience-category {
+            background: white;
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        body.dark-mode .experience-category {
+            background-color: var(--dark-light);
+        }
+
+        .experience-category:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .experience-category h3 {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            color: var(--primary);
+            margin-bottom: var(--space-md);
+        }
+
+        .org-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .org-item {
+            padding-bottom: var(--space-md);
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        body.dark-mode .org-item {
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .org-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .org-role {
+            font-weight: 600;
+            color: var(--dark);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        body.dark-mode .org-role {
+            color: var(--light);
+        }
+
+        .org-place {
+            font-size: 0.95rem;
+            color: var(--gray);
+        }
+
+        /* Achievements Section */
+        .achievements {
+            background-color: var(--light-gray);
+        }
+
+        body.dark-mode .achievements {
+            background-color: var(--dark-light);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .achievement-card {
+            background: white;
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+            opacity: 0;
+            transform: translateY(40px);
+            border-top: 4px solid var(--primary);
+        }
+
+        body.dark-mode .achievement-card {
+            background-color: var(--dark-light);
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .achievement-year {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+        }
+
+        .achievement-title {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        body.dark-mode .achievement-title {
+            color: var(--light);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .skill-category {
+            background: white;
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        body.dark-mode .skill-category {
+            background-color: var(--dark-light);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .skill-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .skill-item {
+            width: 100%;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-name {
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        body.dark-mode .skill-name {
+            color: var(--light);
+        }
+
+        .skill-percentage {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .skill-bar {
+            height: 8px;
+            background-color: var(--light-gray);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        body.dark-mode .skill-bar {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 4px;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: var(--space-lg);
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+            text-decoration: none;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        body.dark-mode .contact-item {
+            background-color: var(--dark-light);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: var(--radius-round);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-md);
+            font-size: 1.8rem;
+            color: white;
+            transition: all var(--transition-normal);
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: var(--space-xl) 0;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-round);
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            transition: all var(--transition-normal);
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero::before {
+                width: 100%;
+                height: 60%;
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 70%);
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --space-xl: 3rem;
+                --space-lg: 2rem;
+                --space-md: 1.5rem;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: var(--space-md);
+                box-shadow: var(--shadow-md);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all var(--transition-normal);
+            }
+
+            body.dark-mode .nav-links {
+                background-color: var(--dark-light);
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .hero {
+                padding-top: 100px;
+            }
+            
+            section {
+                padding: var(--space-lg) 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --space-xl: 2rem;
+                --space-lg: 1.5rem;
+                --space-md: 1rem;
+            }
+            
+            .container {
+                padding: 0 var(--space-sm);
+            }
+            
+            .experience-grid,
+            .achievements-grid,
+            .skills-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero .motto {
+                padding: var(--space-sm);
+            }
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+
+        .section-header h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Scroll Animation Classes */
+        .animate {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            z-index: 1001;
+            transition: width 0.3s ease;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: var(--radius-round);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow-md);
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Anisa Aulia</a>
+                
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Tentang</a></li>
+                    <li><a href="#experience">Pengalaman</a></li>
+                    <li><a href="#achievements">Prestasi</a></li>
+                    <li><a href="#skills">Keahlian</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+                
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Anisa Aulia</h1>
+                    <div class="title">Mahasiswa Sistem Informasi</div>
+                    <p class="bio">Lulusan Manajemen dan sedang berkuliah S1 (Bidang sistem informasi) dengan semangat tinggi dalam pengembangan diri dan dunia organisasi.</p>
+                    <div class="motto">
+                        "Saya adalah siswa dengan lulusan manajemen yang penuh semangat dan energi untuk bisa meraih mimpi, dengan beasiswa ini saya akan menjadikan batu loncatan untuk mencapai masa depan yang cerah."
+                    </div>
+                    <a href="#contact" class="cta-button">
+                        <i class="fas fa-paper-plane"></i> Hubungi Saya
+                    </a>
+                </div>
+                
+                <div class="hero-image">
+                    <img src="https://drive.google.com/thumbnail?id=1CHN1Y5KmObphgAcfXB2TR_9e-ghcqOlJ&sz=w500" 
+                         alt="Anisa Aulia" 
+                         class="profile-img"
+                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgZmlsbD0iIzg5NWZCRiIvPjx0ZXh0IHg9IjIwMCIgeT0iMjAwIiBmb250LWZhbWlseT0iSW50ZXIiIGZvbnQtc2l6ZT0iNDgiIGZpbGw9IiNGRkYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIiBmb250LXdlaWdodD0iNzAwIj5BQTwvdGV4dD48L3N2Zz4='">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tentang Saya</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="profile-detail animate">
+                    <h3><i class="fas fa-user-circle"></i> Profil</h3>
+                    <div class="about-text">
+                        <p>Berpengalaman sebagai pengurus OSIS, Paskibra, dan PMR. Memiliki kemampuan public speaking yang kuat, prestasi akademik yang baik, serta aktif dalam kegiatan sosial dan keagamaan. Siap berkembang dan berkontribusi melalui kesempatan baru.</p>
+                        <p>Kombinasi latar belakang manajemen dengan studi sistem informasi memberikan perspektif unik dalam memecahkan masalah dan mengelola proyek.</p>
+                    </div>
+                </div>
+                
+                <div class="education animate">
+                    <h3><i class="fas fa-graduation-cap"></i> Pendidikan</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="school-name">SMK Bumi Sejahtera</span>
+                            <span class="school-years">2022 - 2025</span>
+                            <span class="school-score">Nilai: 90.81</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="school-name">SMPN 1 Cibungbulang</span>
+                            <span class="school-years">2018 - 2022</span>
+                            <span class="school-score">Nilai: 89.39</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="school-name">SDN Cimanggu 2</span>
+                            <span class="school-years">2013 - 2018</span>
+                            <span class="school-score">Nilai: 69.38</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2>Pengalaman Organisasi</h2>
+            </div>
+            
+            <div class="experience-grid">
+                <div class="experience-category animate">
+                    <h3><i class="fas fa-users"></i> Kepemimpinan</h3>
+                    <div class="org-list">
+                        <div class="org-item">
+                            <span class="org-role">Ketua PMR</span>
+                            <span class="org-place">SMPN 3 Cibungbulang</span>
+                        </div>
+                        <div class="org-item">
+                            <span class="org-role">Sekretaris Paskibra</span>
+                            <span class="org-place">SMPN 3 Cibungbulang</span>
+                        </div>
+                        <div class="org-item">
+                            <span class="org-role">Sekbid Kesehatan & Keamanan</span>
+                            <span class="org-place">OSIS SMK Bumi Sejahtera</span>
+                        </div>
+                        <div class="org-item">
+                            <span class="org-role">Sekbid Kesehatan</span>
+                            <span class="org-place">Paskibra SMK Bumi Sejahtera</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="experience-category animate">
+                    <h3><i class="fas fa-hands-helping"></i> Pengabdian</h3>
+                    <div class="org-list">
+                        <div class="org-item">
+                            <span class="org-role">Guru Ngaji</span>
+                            <span class="org-place">Hudallil Mustaqim</span>
+                        </div>
+                        <div class="org-item">
+                            <span class="org-role">MC Maulid Nabi</span>
+                            <span class="org-place">Kegiatan Kampung (2021)</span>
+                        </div>
+                        <div class="org-item">
+                            <span class="org-role">Moderator Seminar</span>
+                            <span class="org-place">Self Confident (2025)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements" id="achievements">
+        <div class="container">
+            <div class="section-header">
+                <h2>Prestasi & Penghargaan</h2>
+            </div>
+            
+            <div class="achievements-grid">
+                <div class="achievement-card animate">
+                    <span class="achievement-year">2025</span>
+                    <div class="achievement-title">Juara 1 Pensi Drama</div>
+                    <p>SMK Bumi Sejahtera</p>
+                </div>
+                
+                <div class="achievement-card animate">
+                    <span class="achievement-year">2025</span>
+                    <div class="achievement-title">Penghargaan Purna Paskibra</div>
+                    <p>SMK Bumi Sejahtera</p>
+                </div>
+                
+                <div class="achievement-card animate">
+                    <span class="achievement-year">2025</span>
+                    <div class="achievement-title">Penghargaan Lomba Ceramah</div>
+                    <p>Kompetisi tingkat sekolah</p>
+                </div>
+                
+                <div class="achievement-card animate">
+                    <span class="achievement-year">2024</span>
+                    <div class="achievement-title">Penghargaan Orasi</div>
+                    <p>Gallery Indonesia</p>
+                </div>
+                
+                <div class="achievement-card animate">
+                    <span class="achievement-year">2023</span>
+                    <div class="achievement-title">Paskibraka Tingkat Kecamatan</div>
+                    <p>Penghargaan kebangsaan</p>
+                </div>
+                
+                <div class="achievement-card animate">
+                    <span class="achievement-year">2022</span>
+                    <div class="achievement-title">Juara Bina 2 PBB Paskibra</div>
+                    <p>Tingkat Kabupaten</p>
+                </div>
+                
+                <div class="achievement-card animate">
+                    <span class="achievement-year">2021</span>
+                    <div class="achievement-title">Penghargaan Hapalan Juz 30</div>
+                    <p>Mahasiswa Ibnu Khaldun</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2>Keahlian & Keterampilan</h2>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="skill-category animate">
+                    <h3>Public Speaking & Komunikasi</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Public Speaking</span>
+                                <span class="skill-percentage">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="92"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Event Hosting & Moderation</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Bahasa Inggris</span>
+                                <span class="skill-percentage">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category animate">
+                    <h3>Teknis & Organisasi</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Microsoft Office</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Fast Typing</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Kepemimpinan Tim</span>
+                                <span class="skill-percentage">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="88"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category animate">
+                    <h3>Seni & Kreativitas</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Dance & Action</span>
+                                <span class="skill-percentage">82%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="82"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Moderator Acara</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Event Planning</span>
+                                <span class="skill-percentage">78%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="78"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Hubungi Saya</h2>
+            </div>
+            
+            <div class="contact-grid">
+                <a href="https://wa.me/6285893734378" target="_blank" class="contact-item animate">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h3>WhatsApp</h3>
+                        <p>0858-9373-4378</p>
+                    </div>
+                </a>
+                
+                <a href="https://instagram.com/hei.its_cha" target="_blank" class="contact-item animate">
+                    <div class="contact-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Instagram</h3>
+                        <p>@hei.its_cha</p>
+                    </div>
+                </a>
+                
+                <a href="mailto:acutcntk13@gmail.com" class="contact-item animate">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Email</h3>
+                        <p>acutcntk13@gmail.com</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://wa.me/6285893734378" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://instagram.com/hei.its_cha" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:acutcntk13@gmail.com">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Anisa Aulia. All rights reserved.</p>
+                <p>Made with <i class="fas fa-heart" style="color: #FF8E53;"></i> using WebKilat</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        const backToTop = document.getElementById('backToTop');
+        const scrollProgress = document.querySelector('.scroll-progress');
+        const animateElements = document.querySelectorAll('.animate');
+        const skillProgressBars = document.querySelectorAll('.skill-progress');
+
+        // Dark/Light Mode Toggle
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Load theme from localStorage
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+
+        // Mobile Menu Toggle
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close menu when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            }
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('active');
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+
+        // Back to Top Button
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            
+            // Show/hide back to top button
+            if (scrollPosition > 500) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+            
+            // Update scroll progress bar
+            const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollPosition / windowHeight) * 100;
+            scrollProgress.style.width = `${progress}%`;
+            
+            // Trigger scroll animations
+            triggerAnimations();
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth Scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll Animation Trigger
+        function triggerAnimations() {
+            const triggerBottom = window.innerHeight * 0.85;
+            
+            animateElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                
+                if (elementTop < triggerBottom) {
+                    element.classList.add('show');
+                    
+                    // Animate skill bars if visible
+                    if (element.classList.contains('skill-category') && element.classList.contains('show')) {
+                        animateSkillBars();
+                    }
+                }
+            });
+        }
+
+        // Animate Skill Bars
+        function animateSkillBars() {
+            skillProgressBars.forEach(bar => {
+                const width = bar.getAttribute('data-width') + '%';
+                bar.style.width = width;
+            });
+        }
+
+        // Initial trigger for elements already in view
+        triggerAnimations();
+
+        // Profile Image Error Handler
+        const profileImg = document.querySelector('.profile-img');
+        profileImg.addEventListener('error', function() {
+            this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgZmlsbD0iIzg5NWZCRiIvPjx0ZXh0IHg9IjIwMCIgeT0iMjAwIiBmb250LWZhbWlseT0iSW50ZXIiIGZvbnQtc2l6ZT0iNDgiIGZpbGw9IiNGRkYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIiBmb250LXdlaWdodD0iNzAwIj5BQTwvdGV4dD48L3N2Zz4=';
+        });
+
+        // Add hover effect to cards on mobile
+        if ('ontouchstart' in window) {
+            document.querySelectorAll('.experience-category, .achievement-card, .skill-category, .contact-item').forEach(card => {
+                card.addEventListener('touchstart', function() {
+                    this.classList.add('hover');
+                });
+                
+                card.addEventListener('touchend', function() {
+                    setTimeout(() => this.classList.remove('hover'), 200);
+                });
+            });
+        }
+
+        // Initialize skill bars to 0 width
+        window.addEventListener('load', () => {
+            skillProgressBars.forEach(bar => {
+                bar.style.width = '0%';
+            });
+            
+            // Trigger animations after page load
+            setTimeout(triggerAnimations, 500);
+        });
+    </script>
+</body>
+</html>
