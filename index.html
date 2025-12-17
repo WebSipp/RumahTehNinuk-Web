@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rumah Teh Ninuk - Transformasi Gaya Hidup Sehat Premium</title>
+    <title>Rumah Teh Ninuk - Mari Transformasi Gaya Hidup Sehat Anda Bersama Kami</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -115,6 +115,7 @@
             font-size: 24px;
             cursor: pointer;
             padding: 5px;
+            z-index: 1002;
         }
 
         .nav-links {
@@ -1145,49 +1146,184 @@
             .contact-image { height: 450px; }
         }
 
+        /* === MOBILE OPTIMIZATIONS (≤ 767px) === */
         @media (max-width: 767px) {
-            .menu-toggle {
-                display: block;
+            /* HEADER OPTIMIZATION */
+            .header {
+                padding: 12px 16px !important;
             }
             
+            .header.scrolled {
+                padding: 8px 16px !important;
+            }
+            
+            .logo-img {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .logo-text {
+                font-size: 18px;
+                line-height: 1.1;
+            }
+            
+            .logo-tagline {
+                font-size: 9px;
+            }
+            
+            /* HIDE CTA BUTTON IN HEADER FOR MOBILE */
+            .nav .cta-button {
+                display: none !important;
+            }
+            
+            /* MENU TOGGLE */
+            .menu-toggle {
+                display: block;
+                font-size: 20px;
+            }
+            
+            /* MOBILE NAVIGATION */
             .nav-links {
                 display: none;
                 flex-direction: column;
-                position: absolute;
-                top: 100%;
+                position: fixed;
+                top: 0;
                 left: 0;
                 width: 100%;
+                height: 100vh;
                 background: rgba(10, 15, 28, 0.98);
                 backdrop-filter: blur(20px);
-                padding: 20px;
-                border-top: 1px solid rgba(255, 255, 255, 0.1);
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-                gap: 20px;
-                z-index: 999;
+                padding: 80px 20px 40px;
+                overflow-y: auto;
+                z-index: 1001;
+                gap: 15px;
             }
             
             .nav-links.active {
                 display: flex;
             }
             
-            .nav-links a {
-                padding: 12px 0;
-                font-size: 16px;
+            .nav-links li {
                 width: 100%;
+            }
+            
+            .nav-links a {
+                display: block;
+                width: 100%;
+                padding: 15px 20px;
+                font-size: 18px;
                 text-align: center;
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 10px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .nav-links a:hover {
+                background: rgba(0, 212, 170, 0.1);
+            }
+            
+            /* HERO SECTION OPTIMIZATION */
+            .hero {
+                padding-top: 100px !important;
+                padding-bottom: 50px !important;
+                min-height: auto;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+                margin-bottom: 12px;
+                line-height: 1.2;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+                margin-bottom: 20px;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 30px;
+                padding: 0;
+            }
+            
+            .hero .cta-button {
+                padding: 14px 28px;
+                font-size: 16px;
             }
             
             .hero-stats {
+                margin-top: 40px;
                 gap: 15px;
             }
             
             .stat-item {
-                min-width: calc(50% - 15px);
-                max-width: none;
+                min-width: calc(50% - 10px);
+                max-width: calc(50% - 10px);
+                padding: 15px 10px;
+            }
+            
+            .stat-number {
+                font-size: 1.8rem;
+            }
+            
+            .stat-label {
+                font-size: 0.85rem;
+            }
+            
+            /* SECTION OPTIMIZATIONS */
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 40px;
+                padding: 0 10px;
+            }
+            
+            .about, .values, .services, .products, .community, .contact {
+                padding: 60px 20px;
+            }
+            
+            .transformation-title {
+                font-size: 1.6rem;
+                margin-bottom: 30px;
+            }
+            
+            .transformation-grid {
+                gap: 25px;
+            }
+            
+            .transformation-image-container {
+                height: 250px;
+            }
+            
+            .value-card, .service-card {
+                padding: 25px 20px;
+            }
+            
+            .community h2 {
+                font-size: 1.7rem;
+            }
+            
+            .whatsapp-cta {
+                padding: 14px 25px;
+                font-size: 15px;
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .contact-item {
+                padding: 15px;
+            }
+            
+            /* FOOTER OPTIMIZATION */
+            .footer {
+                padding: 50px 20px 25px;
             }
             
             .footer-links {
-                gap: 20px;
+                gap: 15px;
+            }
+            
+            .footer-links a {
+                font-size: 14px;
             }
         }
 
@@ -1224,7 +1360,8 @@
                 <li><a href="#community">Komunitas</a></li>
                 <li><a href="#contact">Kontak</a></li>
             </ul>
-            <a href="https://wa.me/6285810031736?text=Halo%20Bu%20Ninuk,%20saya%20tertarik%20dengan%20program%20sehat%20di%20Rumah%20Teh%20Ninuk" class="cta-button">
+            <!-- Desktop CTA Button (hidden on mobile via CSS) -->
+            <a href="https://wa.me/6285810031736?text=Halo%20Bu%20Ninuk,%20saya%20tertarik%20dengan%20program%20sehat%20di%20Rumah%20Teh%20Ninuk" class="cta-button desktop-cta">
                 <i class="fab fa-whatsapp"></i> Mulai Sekarang
             </a>
         </nav>
@@ -1428,15 +1565,6 @@
                         <p>@ninuk_panca</p>
                     </div>
                 </a>
-
-                <div class="social-links">
-                    <a href="https://wa.me/6285810031736" class="social-link" target="_blank" data-delay="0">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="https://instagram.com/ninuk_panca" class="social-link" target="_blank" data-delay="100">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
             </div>
             
             <div class="contact-image-container">
@@ -1468,6 +1596,7 @@
         // Mobile menu toggle
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
+        const header = document.getElementById('header');
         
         menuToggle.addEventListener('click', function() {
             navLinks.classList.toggle('active');
@@ -1475,9 +1604,15 @@
             if (navLinks.classList.contains('active')) {
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
+                // Prevent body scrolling when menu is open
+                document.body.style.overflow = 'hidden';
+                // Add scrolled class to header for better contrast
+                header.classList.add('scrolled');
             } else {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
+                // Restore body scrolling
+                document.body.style.overflow = '';
             }
         });
         
@@ -1487,7 +1622,22 @@
                 navLinks.classList.remove('active');
                 menuToggle.querySelector('i').classList.remove('fa-times');
                 menuToggle.querySelector('i').classList.add('fa-bars');
+                // Restore body scrolling
+                document.body.style.overflow = '';
             });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = navLinks.contains(event.target);
+            const isClickOnToggle = menuToggle.contains(event.target);
+            
+            if (!isClickInsideNav && !isClickOnToggle && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                menuToggle.querySelector('i').classList.remove('fa-times');
+                menuToggle.querySelector('i').classList.add('fa-bars');
+                document.body.style.overflow = '';
+            }
         });
         
         // Enhanced scroll animations with staggered delays
@@ -1539,7 +1689,6 @@
 
         // Header scroll effect
         window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
             } else {
@@ -1547,7 +1696,7 @@
             }
         });
 
-        // Smooth scroll
+        // Smooth scroll with offset for mobile header
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 if (this.getAttribute('href') === '#') return;
@@ -1557,8 +1706,12 @@
                 const targetElement = document.querySelector(targetId);
                 
                 if (targetElement) {
+                    // Calculate offset based on screen size
+                    const isMobile = window.innerWidth <= 767;
+                    const offset = isMobile ? 80 : 100;
+                    
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - offset,
                         behavior: 'smooth'
                     });
                 }
@@ -1604,6 +1757,16 @@
         
         setVH();
         window.addEventListener('resize', setVH);
+        
+        // Handle escape key to close menu
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                menuToggle.querySelector('i').classList.remove('fa-times');
+                menuToggle.querySelector('i').classList.add('fa-bars');
+                document.body.style.overflow = '';
+            }
+        });
     </script>
 </body>
 </html>
